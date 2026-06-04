@@ -1,0 +1,36 @@
+server:
+  port: 8222
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: zcxshop-user
+          uri: lb://zcxshop-user
+          predicates:
+            - Path=/zcxshop-user/**
+          filters:
+            - StripPrefix=1
+        - id: zcxshop-web
+          uri: lb://zcxshop-web
+          predicates:
+            - Path=/zcxshop-web/**
+          filters:
+            - StripPrefix=1
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8888/eureka
+  instance:
+    prefer-ip-address: true
+
+springdoc:
+  swagger-ui:
+    urls:
+      - name: zcxshop-user
+        url: /zcxshop-user/v3/api-docs
+      - name: zcxshop-web
+        url: /zcxshop-web/v3/api-docs
