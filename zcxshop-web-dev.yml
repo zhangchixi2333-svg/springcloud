@@ -1,0 +1,31 @@
+server:
+  port: 9002
+
+spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:7779
+feign:
+  circuitbreaker:
+    enabled: true
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8888/eureka
+  instance:
+    prefer-ip-address: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+# ========== 自定义业务配置 ==========
+web:
+  version: 1.0.0
+  app-name: "在线商城"
+  service-phone: "400-xxx-xxxx"
+  show-user-module: true

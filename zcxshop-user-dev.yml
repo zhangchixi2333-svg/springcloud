@@ -26,3 +26,10 @@ eureka:
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+
+# ========== 自定义业务配置 ==========
+user:
+  registration-enabled: true
+  default-page-size: 10
+  avatar-max-size: 5242880
+  version: 1.0.0

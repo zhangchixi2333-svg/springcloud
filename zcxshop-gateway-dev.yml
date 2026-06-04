@@ -34,3 +34,15 @@ springdoc:
         url: /zcxshop-user/v3/api-docs
       - name: zcxshop-web
         url: /zcxshop-web/v3/api-docs
+
+# ========== 自定义业务配置 ==========
+gateway:
+  auth-enabled: true
+  error-filter-enabled: true
+  auth-whitelist:
+    - /v3/api-docs
+    - /swagger-ui
+    - /swagger-ui.html
+    - /webjars
+    - /swagger-resources
+    - /favicon.ico
