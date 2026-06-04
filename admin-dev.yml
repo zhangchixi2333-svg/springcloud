@@ -1,0 +1,14 @@
+server:
+  port: 7779
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+# ========== 自定义业务配置 ==========
+admin:
+  contact-email: admin@example.com
+  app-name: "系统监控中心"
+  alert-enabled: true
+  health-check-interval: 30
