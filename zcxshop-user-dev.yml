@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3307/zcxspringcloud_3307?characterEncoding=UTF8&useSSL=false
+    url: jdbc:mysql://localhost:3307/zcxspringcloud?characterEncoding=UTF8&useSSL=false
     username: root
     password: 123456
   jpa:
@@ -33,6 +33,13 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
 
+# ========== 暴露 Actuator 端点（包含 Spring Boot Admin 所需的 health） ==========
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh,health,info
+
 # ========== 自定义业务配置 ==========
 user:
   registration-enabled: true
@@ -40,9 +47,3 @@ user:
   avatar-max-size: 5242880
   version: 1.0.0
 
-# ========== 暴露 Bus 刷新端点 ==========
-management:
-  endpoints:
-    web:
-      exposure:
-        include: bus-refresh
