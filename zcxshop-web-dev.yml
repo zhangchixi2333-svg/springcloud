@@ -6,6 +6,12 @@ spring:
     admin:
       client:
         url: http://localhost:7779
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
 feign:
   circuitbreaker:
     enabled: true
@@ -29,3 +35,10 @@ web:
   app-name: "在线商城"
   service-phone: "400-xxx-xxxx"
   show-user-module: true
+
+# ========== 暴露 Bus 刷新端点 ==========
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

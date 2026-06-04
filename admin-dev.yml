@@ -1,6 +1,14 @@
 server:
   port: 7779
 
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+
 eureka:
   client:
     register-with-eureka: false
@@ -12,3 +20,10 @@ admin:
   app-name: "系统监控中心"
   alert-enabled: true
   health-check-interval: 30
+
+# ========== 暴露 Bus 刷新端点 ==========
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
