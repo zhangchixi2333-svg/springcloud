@@ -17,6 +17,15 @@ spring:
             - Path=/zcxshop-web/**
           filters:
             - StripPrefix=1
+  application:
+    name: zcxshop-gateway
+  zipkin:
+    base-url: http://localhost:9042
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1          
   rabbitmq:
     host: localhost
     port: 5672
